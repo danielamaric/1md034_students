@@ -1,0 +1,89 @@
+@import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
+
+/* Your comment goes here */
+
+body {
+    font-family: arial;
+    width: 100%;
+    margin: 0px;
+}
+
+#headerimage{
+    width: 100%;
+    hight: auto;
+    opacity: 0.5;
+}
+
+.allergen {
+    font-weight: bold;
+}
+
+#orderinfo {
+    color: white;
+    background: #1f3d7a;
+}
+
+button {
+    margin: 30px 0px 0px 0px;
+}
+
+button:hover {
+    background: gray;
+    cursor: pointer;
+}
+
+
+
+section {
+    margin: 100px auto;
+    width:90%;
+    padding: 10px;
+    border: 2px dashed black;
+}
+
+h1 {
+    position: absolute;
+    hight: 500px;
+    top: 15%;
+    left: 25%;
+    opacity: 1;
+    font-family: 'Merienda', cursive;
+    font-size: 30px;
+               
+}
+
+header {
+    hight: 500px;
+}
+
+.wrapper {
+     display: grid;
+     grid-gap: 3%;
+     grid-template-columns: 30% 30% 30%;
+     background-color: white;
+     color: black;
+ }
+
+ .box {
+     background-color: white;
+     color: black;
+     border-radius: 5px;
+     padding: 20px;
+     font-size: 150%;
+     width: 100%;
+     overflow: hidden;
+              
+
+ }
+
+ .thor {
+     grid-column: 1 /*/ span 2;*/
+ }
+ .guardian {
+     grid-column: 2 ;
+     /*grid-row: 1  / span 2;*/
+ }
+ .clark {
+     grid-column: 3 ;
+     /*grid-row: 2 ;*/
+ }

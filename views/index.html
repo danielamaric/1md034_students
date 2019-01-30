@@ -1,121 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
     <title>Hamburger</title>
     <meta charset="utf-8"/>
   </head>
   <body>
 
-    <section>
-      
-      
-      <main>
+    
+    
+    
+    <main>
+      <header>
+        
+        
+        <img id=headerimage src="https://restaurants.accorhotels.com/media/images/burger-abe-3d3d_1133x433.jpg" alt="header" title="Burger" >
 
         <h1>Welcome to DreamyBurgers Online </h1>
 
-      </main>
-      <h2> Select Burger </h2>
+      </header>
+      
+    </main>
+
+    <section id="burgers">
+      <h2 > Select Burger </h2>
       <p> This is where you execute burger selection </p>
 
-      <table>
-        <thead>
-          <tr>
-            <th> Thor all mighty </th>
-            <th> The Guardian </th>
-            <th> Clark's  </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><img src="https://www.foodlovers.in/wp-content/uploads/2017/06/black-bun-burgers.png" alt="Thor" title="Burger" width="300"></td>
-            <td><img src="https://static01.nyt.com/images/2016/04/20/dining/20REST-SPOTTEDPIG-slide-YHHD/20REST-SPOTTEDPIG-slide-YHHD-articleLarge.jpg?quality=75&auto=webp&disable=upscale" alt="Guardians" title="Burger" width="300"></td>
-            <td><img src="https://www.nixo.pl/wp-content/uploads/2016/12/Flying-Burger-Nixo-Dominik-Janasik.jpg" alt="Clark's" title="Burger" width="200"></td>
-          </tr>
-
-          <tr>
-            <td>
-              <ul>
-                <li> 700kCal </li>
-                <li> Contains lactose </li>
-                <li> Forged in asgaard</li>
-                
-              </ul>
-            </td>
+      <div class="wrapper">
+        <div class="box thor">
+          <h3>Thor all mighty</h3>
+          <img src="https://www.foodlovers.in/wp-content/uploads/2017/06/black-bun-burgers.png" alt="Thor" title="Burger" width="300">
+          <ul>
+            <li> 700kCal </li>
+            <li> Contains <span class="allergen">lactose</span> </li>
+            <li> Forged in asgaard</li>
             
-            <td>
-              <ul>
-                <li> 600kCal </li>
-                <li> Contains gluten and lactos </li>
-                <li> Out of this world </li>
-              </ul>
-            </td>
-            
-            <td>
-              <ul>
-                <li> 1000kCal </li>
-                <li> Warning! May contain a bit of heaven! </li>
-              </ul>
-            </td>
-          </tr>
-          
-        </tbody>
-      </table> 
+          </ul>
+        </div>
+        <div class="box guardian">
+          <h3>The Guardian</h3>
+          <img src="https://static01.nyt.com/images/2016/04/20/dining/20REST-SPOTTEDPIG-slide-YHHD/20REST-SPOTTEDPIG-slide-YHHD-articleLarge.jpg?quality=75&auto=webp&disable=upscale" alt="Guardians" title="Burger" width="300">
+          <ul>
+            <li> 600kCal </li>
+            <li> Contains <span class="allergen">gluten</span> and <span class="allergen">lactos</span> </li>
+            <li> Out of this world </li>
+          </ul>
+        </div>
+        <div class="box clark">
+          <h3>Clark's</h3>
+          <img src="https://www.nixo.pl/wp-content/uploads/2016/12/Flying-Burger-Nixo-Dominik-Janasik.jpg" alt="Clark's" title="Burger" width="200">
+          <ul>
+            <li> 1000kCal </li>
+            <li> Warning! May contain a bit of <span class="allergen">heaven!</span> </li>
+          </ul>
+        </div>
+      </div> 
     </section>
     
-    <section>
-      <h2> Customer Information </h2>
+    <section id="orderinfo">
+      <h2 > Customer Information </h2>
       <p> This is where you provide necessary information </p>
-      
-      <main>
-        <section id="contact">
-          <form>
-            <p>
-              <label for="fullname">Full Name</label><br>
-              <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
-            </p>
-            <p>
-              <label for="email"> E-mail </label> <br>
-              <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
-            </p>
-            <p>
-              <label for="street"> Street </label> <br>
-              <input type="street" id="street" name="st" required="required" placeholder="Street name">             
-            </p>
-            <p>
-              <label for="house"> House </label> <br>
-              <input type="house" id="house" name="ho" required="required" placeholder="House number">
-            </p>
-            <p>
-              <label for="requests"> Requests </label> <br>
-              <textarea id="requests" name="re" cols="80" rows="5" placeholder="Specify any requests here" maxlength="100"></textarea>  
-            </p>
-            <p>
+      <form>
+        <p>
+          <label for="fullname">Full Name</label><br>
+          <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+        </p>
+        <p>
+          <label for="email"> E-mail </label> <br>
+          <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+        </p>
+        <p>
+          <label for="street"> Street </label> <br>
+          <input type="street" id="street" name="st" required="required" placeholder="Street name">             
+        </p>
+        <p>
+          <label for="house"> House </label> <br>
+          <input type="house" id="house" name="ho" required="required" placeholder="House number">
+        </p>
+        <p>
+          <label for="requests"> Requests </label> <br>
+          <textarea id="requests" name="re" cols="80" rows="5" placeholder="Specify any requests here" maxlength="100"></textarea>  
+        </p>
+        <p>
 
-              Gender <br>
-              
-              <input type="radio" id="male" name="gender" value="male"> Male <br>
-              <input type="radio" id="female" name="gender" value="female"> Female <br>
-              <input type="radio" id="nonbinary" name="gender" value="nonbinary"> Non-binary <br>
-              <input type="radio" id="undisclosed" name="gender" value="undisclosed" checked="checked"> Undisclosed
-              
-            </p>
-            <p>
-              <label for="recipient">Recipient</label><br>
-              <select id="recipient" name="rcp">
-                <option selected="selected">Paypal</option>
-                <option>Swich</option>
-                <option>Favours</option>
-                <option>Cash</option>
-              </select>
-            </p>
-            
-          </form>
-
-          <button type="submit"><img src="http://gbquotes.com/wp-content/uploads/2017/05/food-delivery-car-insurance.png" width="50"> Place my order! </button>
-
+          Gender <br>
           
-        </section>
-      </main>
+          <input type="radio" id="male" name="gender" value="male"> Male <br>
+          <input type="radio" id="female" name="gender" value="female"> Female <br>
+          <input type="radio" id="nonbinary" name="gender" value="nonbinary"> Non-binary <br>
+          <input type="radio" id="undisclosed" name="gender" value="undisclosed" checked="checked"> Undisclosed
+          
+        </p>
+        <p>
+          <label for="recipient">Recipient</label><br>
+          <select id="recipient" name="rcp">
+            <option selected="selected">Paypal</option>
+            <option>Swich</option>
+            <option>Favours</option>
+            <option>Cash</option>
+          </select>
+        </p>
+        
+      </form>
+
+      <button type="submit"><img src="http://gbquotes.com/wp-content/uploads/2017/05/food-delivery-car-insurance.png" width="50"> Place my order! </button>
       
       
     </section>
