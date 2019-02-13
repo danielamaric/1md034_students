@@ -1,117 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- for map-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+    <script type="text/javascript" src="js/menu.js" defer ></script> 
+    <!-- <script src="js/js_script.js" defer></script> -->
+    <script src="https://vuejs.org/js/vue.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="js/vue_script.js" defer></script>
+    
+    
+    
+    
     <title>Hamburger</title>
     <meta charset="utf-8"/>
   </head>
-  <body>
-
-    
-    
+  <body>   
     
     <main>
       <header>
-        
-        
         <img id=headerimage src="https://restaurants.accorhotels.com/media/images/burger-abe-3d3d_1133x433.jpg" alt="header" title="Burger" >
-
         <h1>Welcome to DreamyBurgers Online </h1>
-
       </header>
+
       
     </main>
-
-    <section id="burgers">
-      <h2 > Select Burger </h2>
-      <p> This is where you execute burger selection </p>
-
-      <div class="wrapper">
-        <div class="box thor">
-          <h3>Thor all mighty</h3>
-          <img src="https://www.foodlovers.in/wp-content/uploads/2017/06/black-bun-burgers.png" alt="Thor" title="Burger" width="300">
-          <ul>
-            <li> 700kCal </li>
-            <li> Contains <span class="allergen">lactose</span> </li>
-            <li> Forged in asgaard</li>
-            
-          </ul>
-        </div>
-        <div class="box guardian">
-          <h3>The Guardian</h3>
-          <img src="https://static01.nyt.com/images/2016/04/20/dining/20REST-SPOTTEDPIG-slide-YHHD/20REST-SPOTTEDPIG-slide-YHHD-articleLarge.jpg?quality=75&auto=webp&disable=upscale" alt="Guardians" title="Burger" width="300">
-          <ul>
-            <li> 600kCal </li>
-            <li> Contains <span class="allergen">gluten</span> and <span class="allergen">lactos</span> </li>
-            <li> Out of this world </li>
-          </ul>
-        </div>
-        <div class="box clark">
-          <h3>Clark's</h3>
-          <img src="https://www.nixo.pl/wp-content/uploads/2016/12/Flying-Burger-Nixo-Dominik-Janasik.jpg" alt="Clark's" title="Burger" width="200">
-          <ul>
-            <li> 1000kCal </li>
-            <li> Warning! May contain a bit of <span class="allergen">heaven!</span> </li>
-          </ul>
-        </div>
-      </div> 
-    </section>
     
-    <section id="orderinfo">
-      <h2 > Customer Information </h2>
-      <p> This is where you provide necessary information </p>
-      <form>
-        <p>
-          <label for="fullname">Full Name</label><br>
-          <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
-        </p>
-        <p>
-          <label for="email"> E-mail </label> <br>
-          <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
-        </p>
-        <p>
-          <label for="street"> Street </label> <br>
-          <input type="street" id="street" name="st" required="required" placeholder="Street name">             
-        </p>
-        <p>
-          <label for="house"> House </label> <br>
-          <input type="house" id="house" name="ho" required="required" placeholder="House number">
-        </p>
-        <p>
-          <label for="requests"> Requests </label> <br>
-          <textarea id="requests" name="re" cols="80" rows="5" placeholder="Specify any requests here" maxlength="100"></textarea>  
-        </p>
-        <p>
+    <!-- for javascript file js_script.js -->
+    <!--
+        <section id="burgers">
+          
+          <h2 > Select Burger </h2>
+          <p> This is where you execute burger selection </p>
 
-          Gender <br>
-          
-          <input type="radio" id="male" name="gender" value="male"> Male <br>
-          <input type="radio" id="female" name="gender" value="female"> Female <br>
-          <input type="radio" id="nonbinary" name="gender" value="nonbinary"> Non-binary <br>
-          <input type="radio" id="undisclosed" name="gender" value="undisclosed" checked="checked"> Undisclosed
-          
-        </p>
-        <p>
-          <label for="recipient">Recipient</label><br>
-          <select id="recipient" name="rcp">
-            <option selected="selected">Paypal</option>
-            <option>Swich</option>
-            <option>Favours</option>
-            <option>Cash</option>
-          </select>
-        </p>
+          <div class="wrapper" id="myID"> </div>
+
+        </section>
+        -->
         
-      </form>
+        
+        <!-- for vue -->
+        
+        <section id="burgers">
+          
+          <h2 > Select Burger </h2>
+          <p> This is where you execute burger selection </p>
 
-      <button type="submit"><img src="http://gbquotes.com/wp-content/uploads/2017/05/food-delivery-car-insurance.png" width="50"> Place my order! </button>
-      
-      
-    </section>
+          
+          <div class="wrapper" id="menuList">
+            
+            <div v-for="item in items">
+              <input type="checkbox" v-bind:id=item.name class="burgerChecker"> <br>
+              <h2> {{ item.name }} </h2>
 
-    <hr> <!-- horizontal line -->
-    <footer> &copy; Copyright 2019 Hypothetical Burgers Inc.</footer>
-    
-    <!-- Your comment goes here -->
+              
+              
+              <img :src=item.image title="Burger" width="300">
+              
+              <ul>
+                <li> {{item.calories}} kCal</li>
+                <li> {{item.allergy}} </li>
+              </ul>
+            </div>
+            
+          </div>
+
+        </section>
+        
+
+        <section id="orderinfo">
+          <h2 > Customer Information </h2>
+          <p> This is where you provide necessary information </p>
+          <form>
+            <p>
+              <label for="fullname">Full Name</label><br>
+              <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+            </p>
+            <p>
+              <label for="email"> E-mail </label> <br>
+              <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+            </p>
+            <!-- <p>
+                 <label for="street"> Street </label> <br>
+                 <input type="street" id="street" name="st" required="required" placeholder="Street name">             
+            </p>
+            <p>
+              <label for="house"> House </label> <br>
+              <input type="house" id="house" name="ho" required="required" placeholder="House number">
+            </p>
+            <p> -->
+              <label for="requests"> Requests </label> <br>
+              <textarea id="requests" name="re" cols="80" rows="5" placeholder="Specify any requests here" maxlength="100"></textarea>  
+            </p>
+            <p>
+
+              Gender <br>
+              
+              <input type="radio" id="male" name="gender" value="male"> Male <br>
+              <input type="radio" id="female" name="gender" value="female"> Female <br>
+              <input type="radio" id="nonbinary" name="gender" value="nonbinary"> Non-binary <br>
+              <input type="radio" id="undisclosed" name="gender" value="undisclosed" checked="checked"> Undisclosed
+              
+            </p>
+            <p>
+              <label for="recipient">Recipient</label><br>
+              <select id="recipient" name="rcp">
+                <option selected="selected">Paypal</option>
+                <option>Swish</option>
+                <option>Credit</option>
+                <option>Cash</option>
+              </select>
+            </p>
+            
+          </form>
+
+
+          <div id="orders">
+            <h2> Click in the map! </h2>
+            <div class="view-box">
+              <div id="dots" v-on:click="displayOrder">
+                <div
+                  v-if="orders.show"
+                  v-bind:style="{ left: orders.x + 'px', top: orders.y + 'px'}">
+                  T
+                </div>
+              </div>
+            </div>
+
+            
+              <button v-on:click="markDone()" id="butt" type="submit"><img src="http://gbquotes.com/wp-content/uploads/2017/05/food-delivery-car-insurance.png" width="50"> Place my order! </button>
+              <div v-if="show">
+                <h3>Chosen burgers: </h3> {{ burgers }}
+                <h3>Customer information: </h3> {{name}} <br>
+                {{mail}} <br>
+                {{request}} <br>
+                {{gender}} <br>
+                <h3>You wish to pay with: </h3> {{payment}} <br>
+              </div>
+
+          </div> <!-- for div id="orders" -->
+        </section>
+
+        <hr> <!-- horizontal line -->
+        <footer> &copy; Copyright 2019 Hypothetical Burgers Inc.</footer>
+        
+        <!-- Your comment goes here -->
   </body>
 </html>
